@@ -9,7 +9,7 @@ int main(void)
     unsigned long ulReturnAddress = 0x400858;
 
     FILE *psFile;
-    
+
     psFile = fopen("data", "w");
 
     /* Printing out name */
@@ -21,7 +21,7 @@ int main(void)
     }
 
     fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);
-    
+
     fclose(psFile);
 
     return 1;
