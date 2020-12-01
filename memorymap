@@ -119,5 +119,15 @@
 
 // STEP 2.2: MEMORY MAP OF THE DATA SECTION
 
-    Address                  Content                  Description
-    
+    Address         |         Content               |         Description
+   0x420044         |   0x00000044                  |            grade
+
+
+// STEP 2.3: MEMORY MAP OF THE BSS SECTION   
+    Address         |         Content               |         Description
+   0x420058         |       0x00000000              |            name
+
+// STEP 2.4: MEMORY MAP OF THE STACK
+
+Offset              |              Description
+x30                 |
