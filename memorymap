@@ -11,7 +11,7 @@
    0x400788 <readString+8>:	    stp	x21, x30, [sp,#16]
 
    // First loop setup
-   0x40078c <readString+12>:	mov	x19, #0x0                   	// #0
+   0x40078c <readString+12>:	mov	x19, #0x0                    // #0
    0x400790 <readString+16>:	adrp	x21, 0x420000
    
    // First loop
@@ -129,5 +129,9 @@
 
 // STEP 2.4: MEMORY MAP OF THE STACK
 
-Offset              |              Description
-x30                 |
+      Offset        |              Description
+        0           |                  x19
+        8           |                  x20
+       16           |                  x21
+       24           |                  x30  
+        
