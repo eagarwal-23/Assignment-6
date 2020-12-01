@@ -22,8 +22,13 @@
    0x4007a4 <readString+36>:	b.eq	0x4007c0 <readString+64>
    0x4007a8 <readString+40>:	cmn	w0, #0x1
    0x4007ac <readString+44>:	b.eq	0x4007c0 <readString+64>
+
+// x1 = sp + 32
    0x4007b0 <readString+48>:	add	x1, sp, #0x20
+
+// store buf[i] = c
    0x4007b4 <readString+52>:	strb	w0, [x19,x1]
+   
    0x4007b8 <readString+56>:	add	x19, x19, #0x1
    0x4007bc <readString+60>:	b	0x400794 <readString+20>
 
@@ -81,8 +86,6 @@
 
    // getName();
    0x400840 <main+32>:	        bl	0x4007fc <getName>
-
-   // 
    0x400844 <main+36>:	        mov	x0, x19
 
    // if (strcmp(name, "Andrew Appel") != 0) skip assignment to grade
@@ -133,5 +136,12 @@
         0           |                  x19
         8           |                  x20
        16           |                  x21
-       24           |                  x30  
-        
+       24           |            x30  // from readString to getName
+       32           |                  Buf
+       40           |                  buf
+       48           |                  buf
+       56           |                  buf
+       64           |                  buf
+       72           |                  buf
+       80           |                  buf
+       88           |             x30 // from getName() to main
