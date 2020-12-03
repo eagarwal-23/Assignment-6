@@ -24,10 +24,10 @@ int main(void)
         putc('\0', psFile); /* Writes 00000000 */
     }
 
-    fprintf(psFile, "%c", uiMovInstr);
-    fprintf(psFile, "%c", uiAdrInstr);
-    fprintf(psFile, "%c", uiStrbInstr);
-    fprintf(psFile, "%c", uiBInstr);
+    fprintf(psFile, "%i", uiMovInstr);
+    fprintf(psFile, "%i", uiAdrInstr);
+    fprintf(psFile, "%i", uiStrbInstr);
+    fprintf(psFile, "%i", uiBInstr);
 
     fclose(psFile);
 
