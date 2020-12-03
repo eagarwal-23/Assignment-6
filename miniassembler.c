@@ -79,7 +79,24 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
       uiToReg: the number of toreg. */
 
 unsigned int MiniAssembler_strb(unsigned int uiFromReg,
-   unsigned int uiToReg);
+   unsigned int uiToReg) {
+      unsigned int uiInstr;
+      
+      /* 0011 1000 000x xx...xx xxxx */
+      uiInstr = 0x38000000;
+
+      /* Rightmost 5 bits to contain the number of the
+         register from where byte has to be moved. */
+      uiInstr |= uiFromReg;
+
+      /* Shift number of register to where byte has
+         to be moved left by 5 bits. */
+      uiToReg = uiToReg << 5;
+
+      uiInstr |= uiToReg;
+
+      return uiInstr;
+   }
 
 /*--------------------------------------------------------------------*/
 
