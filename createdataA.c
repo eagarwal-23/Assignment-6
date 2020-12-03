@@ -8,9 +8,9 @@ int main(void)
     int i;
     const char* name = "Tansha Vugarwal";
     unsigned long ulReturnAddress = 0x420078;
-    unsigned int uiMovInstr = MiniAssembler_mov(0, 12345679345678);
-    unsigned int uiAdrInstr = MiniAssembler_adr(1, 0x420044, 0x42007C);
-    unsigned int uiStrbInstr = MiniAssembler_strb(0, 1);
+    unsigned int uiMovInstr = MiniAssembler_mov(1, 0x41);
+    unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
+    unsigned int uiStrbInstr = MiniAssembler_strb(1, 2);
     unsigned int uiBInstr = MiniAssembler_b(0x40085c, 0x420084);
 
     FILE *psFile;
