@@ -63,6 +63,7 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    
    uiDispHi = uiDisp >> 2;
    uiDispHi = uiDispHi << 5;
+   // Masked here 
    uiDispHi &= 0x00ffffe0;
    uiInstr |= uiDispHi;
    
@@ -118,6 +119,13 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
 
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
    /* uiDisp = uiDisp << 26; */
+
+   /* shift to the right to account for all multiples of 4 */
+   uiDisp = uiDisp >> 2;
+
+   /* mask for 26 bits displacement might be negative */
+   uiDisp &= 0x03FFFFFF;
+
    uiInstr |= uiDisp; 
 
    return uiInstr;
