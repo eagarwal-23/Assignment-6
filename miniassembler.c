@@ -117,6 +117,7 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    uiInstr = 0x14000000;
 
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
+   uiDisp = uiDisp & 0x1A;
    /* uiDisp = uiDisp << 26; */
    uiInstr |= uiDisp; 
 
