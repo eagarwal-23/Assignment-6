@@ -10,7 +10,7 @@ int main(void)
     unsigned int uiMovInstr = MiniAssembler_mov(0, 'A');
     unsigned int uiAdrInstr = MiniAssembler_adr(1, 0x420044, 0xffffbe79162d);
     unsigned int uiStrbInstr = MiniAssembler_strb(0, 1);
-    unsigned int uiBInstr = MiniAssembler_b(0x40085c, 0xffffbe79162d);
+    unsigned int uiBInstr = MiniAssembler_b(0x40085c, 0xffffbe79162f);
 
     FILE *psFile;
 
