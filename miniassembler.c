@@ -66,7 +66,6 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
    
    uiDispHi = uiDisp >> 2;
    uiDispHi = uiDispHi << 5;
-   // Masked here 
    uiDispHi &= 0x00ffffe0;
    uiInstr |= uiDispHi;
    
