@@ -19,7 +19,7 @@ int main(void)
     /* Printing out 15-character long name. */
     fprintf(psFile, "%s", name);
 
-    for (i = 0; i < 29; i++)
+    for (i = 0; i < 17; i++)
     {
         putc('\0', psFile); /* Writes 00000000 */
     }
