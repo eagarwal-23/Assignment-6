@@ -83,7 +83,7 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
       unsigned int uiInstr;
       
       /* 0011 1000 000x xx...xx xxxx */
-      uiInstr = 0x38000000;
+      uiInstr = 0x39000000;
 
       /* Rightmost 5 bits to contain the number of the
          register from where byte has to be moved. */
@@ -92,6 +92,7 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
       /* Shift number of register to where byte has
          to be moved left by 5 bits. */
       uiToReg = uiToReg << 5;
+
 
       uiInstr |= uiToReg;
 
@@ -116,11 +117,9 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    uiInstr = 0x14000000;
 
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
-   uiDisp = uiDisp << 26;
+   // uiDisp = uiDisp << 26;
    uiInstr |= uiDisp; 
 
    return uiInstr;
-
-
 }
 
