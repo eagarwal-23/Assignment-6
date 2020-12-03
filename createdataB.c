@@ -10,7 +10,7 @@ int main(void)
 
     FILE *psFile;
 
-    psFile = fopen("data", "w");
+    psFile = fopen("dataB", "w");
 
     /* Printing out name */
     fprintf(psFile, "%s", name);

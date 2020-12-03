@@ -96,7 +96,7 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
          to be moved left by 5 bits. */
       uiToReg = uiToReg << 5;
 
-
+      
       uiInstr |= uiToReg;
 
       return uiInstr;
