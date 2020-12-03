@@ -25,8 +25,11 @@ unsigned int MiniAssembler_mov(unsigned int uiReg,
    /* Getting the Rd value in */
    uiInstr |= uiReg;
 
-   /* Move immed value 21 bits so it starts there and stuff */
-   uiImmed = uiImmed << 21;
+   /* mask off everything except rightmost 16 bits: 0-15 in 5-20 */ 
+   uiImmed &= 0x0000FFFF;
+
+   /* shift 5 */
+   uiImmed = uiImmed << 5;
 
    /* Getting the immed value in from 4 to 20 */
    uiInstr |= uiImmed;
