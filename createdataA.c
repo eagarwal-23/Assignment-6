@@ -7,7 +7,7 @@ int main(void)
 {
     int i;
     const char* name = "Tansha Vugarwal";
-    /* ulReturnAddress in BSS (name array) */
+    /* ulReturnAddress in BSS (the name array) */
     unsigned long ulReturnAddress = 0x420078;
     
     /* grade = 0x41 */
