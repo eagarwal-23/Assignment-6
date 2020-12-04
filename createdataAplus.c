@@ -11,7 +11,9 @@ int main(void)
 
     /* putchar('A') */
     unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* 24-27 */
-    unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); /* 28-31 */
+    /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); /* 28-31 */
+    unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); /* 28-31 */
+
 
     /* grade = + */
     unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B); /* 32-35 */

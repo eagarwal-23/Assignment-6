@@ -102,7 +102,7 @@ unsigned int MiniAssembler_strb(unsigned int uiFromReg,
 
       return uiInstr;
    }
-
+   
 /*--------------------------------------------------------------------*/
 
 /* Return the machine language equivalent of "b addr". 
