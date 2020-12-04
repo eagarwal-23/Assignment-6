@@ -10,18 +10,17 @@ int main(void)
     /* Need to change return address */
     unsigned long ulReturnAddress = 0x420070;
 
-    /* printf("A") */
-    unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); 
-    unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070);
+    /* putchar('A') */
+    unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* 24-27 */
+    unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); /* 28-31 */
 
     /* grade = + */
-    unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B);
-    unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x420078);
-    unsigned int uiStrbInstr = MiniAssembler_strb(1, 2);
+    unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B); /* 32-35 */
+    unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x420078); /* 36-39 */
+    unsigned int uiStrbInstr = MiniAssembler_strb(1, 2); /* 40-43 */
     
     /* Branch to printf("%c is your grade.\n", grade); */
-    unsigned int uiBInstr = MiniAssembler_b(0x400864, 0x420080);
-
+    unsigned int uiBInstr = MiniAssembler_b(0x400864, 0x420080); /* 44 - 47 */
 
     FILE *psFile;
 
