@@ -95,11 +95,11 @@
    0x400854 <main+52>:	        cbnz	w0, 0x400864 <main+68>
 
    // grade = 'B'
-   0x400858 <main+56>:	        mov	w1, #0x42                  	// #66
-
-   // printf("%c is your grade.\n", grade);      
+   0x400858 <main+56>:	        mov	w1, #0x42                  	// #66  
    0x40085c <main+60>:	        adrp	x0, 0x420000
    0x400860 <main+64>:	        strb	w1, [x0,#68]
+   
+   // printf("%c is your grade.\n", grade);    
    0x400864 <main+68>:	        adrp	x0, 0x400000
    0x400868 <main+72>:	        add	x0, x0, #0x960
    0x40086c <main+76>:	        adrp	x1, 0x420000
