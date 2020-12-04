@@ -5,7 +5,6 @@
 
 int main(void)
 {
-    int i;
     const char* name = "Eesh";
     /* Need to change return address */
     unsigned long ulReturnAddress = 0x42005C;
@@ -40,7 +39,7 @@ int main(void)
 
     FILE *psFile;
 
-    psFile = fopen("dataA", "w");
+    psFile = fopen("dataAplus", "w");
 
     /* Printing out 4-character long name. */
     /* 0->3 */
