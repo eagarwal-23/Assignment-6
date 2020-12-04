@@ -7,11 +7,17 @@ int main(void)
 {
     int i;
     const char* name = "Tansha Vugarwal";
+    /* ulReturnAddress in BSS (name array) */
     unsigned long ulReturnAddress = 0x420078;
+    
+    /* grade = 0x41 */
+    /* 0x41: hex for A */
     unsigned int uiMovInstr = MiniAssembler_mov(1, 0x41);
     unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
     unsigned int uiStrbInstr = MiniAssembler_strb(1, 2);
-    unsigned int uiBInstr = MiniAssembler_b(0x40085c, 0x420084);
+
+    /* Branch to printf("%c is your grade.\n", grade); */
+    unsigned int uiBInstr = MiniAssembler_b(0x400864, 0x420084);
 
     FILE *psFile;
 
