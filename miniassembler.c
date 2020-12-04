@@ -133,34 +133,3 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    return uiInstr;
 }
 
-/*--------------------------------------------------------------------*/
-
-/* Return the machine language equivalent of "bl addr". 
-   
-   Parameters:
-      ulAddr: the address denoted by addr, that is, the address to
-         which the branch should occur.
-      ulAddrOfThisInstr: the address of the b instruction itself. */
-
-unsigned int MiniAssembler_bl(unsigned long ulAddr,
-   unsigned long ulAddrOfThisInstr)
-{
-   unsigned int uiInstr; /* Instruction */
-   unsigned int uiDisp; 
-   
-   uiInstr = 0x94000000;
-
-   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
-
-   /* shift to the right to account for all multiples of 4 */
-   uiDisp = uiDisp >> 2;
-
-   /* mask for 26 bits displacement might be negative */
-   uiDisp &= 0x03FFFFFF;
-
-   uiInstr |= uiDisp; 
-
-   return uiInstr;
-}
-
-
