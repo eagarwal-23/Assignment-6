@@ -235,7 +235,7 @@ unsigned int MiniAssembler_add(unsigned int uiRegSum,
 
 /* Return the machine language equivalent of "ldrb wt, [rn, #imm]"" where
    wt is a W register,
-   rn is a base X register,
+   rn is a X register,
    #imm is a immed value.
    
    Parameters:
@@ -249,9 +249,8 @@ unsigned int MiniAssembler_ldrb(unsigned int uiReg,
 {
    unsigned int uiInstr; /* Instruction */
 
-   /* 0011 1000 010x xxxx xxxx x110 0000 0000 */
-
-   uiInstr = 0x38400600;
+   /* 0011 1001 01xx xxxx xxxx xxxx xxxx xxxx */
+   uiInstr = 0x39400000;
    
    /* Getting the wt value in */
    uiInstr |= uiReg;
@@ -260,8 +259,8 @@ unsigned int MiniAssembler_ldrb(unsigned int uiReg,
    uiRegN = uiRegN << 5;
    uiInstr |= uiRegN;
 
-   /* Getting the #imm value in from 12 to 20 */
-   uiImmed = uiImmed << 12;
+   /* Getting the #imm value in from 10 to 21 */
+   uiImmed = uiImmed << 10;
    uiInstr |= uiImmed;
 
    return uiInstr;
