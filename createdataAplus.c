@@ -5,15 +5,15 @@
 
 int main(void)
 {
-    const char* name = "Tansha Vugarwal";
+    const char* name = "Tansha Augarwal";
     int i;
     unsigned long ulReturnAddress = 0x420070;
 
     /* putchar('A') */
-    unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* 24-27 */
+    unsigned int uiAdrInstr(0, 0x42005F, 0x42006C)
+    /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* 24-27 */
     /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); /* 28-31 */
     unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); /* 28-31 */
-
 
     /* grade = + */
     unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B); /* 32-35 */
