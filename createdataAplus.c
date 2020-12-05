@@ -10,7 +10,7 @@ int main(void)
     unsigned long ulReturnAddress = 0x420070;
 
     /* putchar('A') */
-    unsigned int uiAdrInstr(0, 0x42005F, 0x42006C)
+    unsigned int uiAdrInstr1 = MiniAssembler_adr(0, 0x42005F, 0x42006C);
     /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* 24-27 */
     /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); /* 28-31 */
     unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); /* 28-31 */
@@ -37,7 +37,7 @@ int main(void)
         putc('\0', psFile); /* Writes 00000000 */
     }
 
-    fwrite(&uiMovInstr1, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiAdrInstr1, sizeof(unsigned int), 1, psFile);
 
     fwrite(&uiBlInstr1, sizeof(unsigned int), 1, psFile);
 
@@ -49,7 +49,6 @@ int main(void)
 
     fwrite(&uiBInstr, sizeof(unsigned int), 1, psFile);
  
-
     fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);
 
     fclose(psFile);
