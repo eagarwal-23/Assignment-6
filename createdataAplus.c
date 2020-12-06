@@ -17,11 +17,11 @@ int main(void)
     
 
     /* Testing how to use printf */
-    /* Basic idea is we will write NULLBYTE %c NULLBYTE at the end of this file.
+    /* Basic idea is we will write %c NULLBYTE at the end of this file.
     We will know the place in memory so we can put the address in x0, and then char A in x1,
     and we can call printf. 
     Only problem is that printf is segfaulting. */
-    
+
     /* adrp	x0, 0x400000 */
     unsigned int uiAdrpInstr1 = MiniAssembler_adrp(0, 0x400000, 0x420064); /* 1 */
     /* add	x0, x0, #0x978 */
