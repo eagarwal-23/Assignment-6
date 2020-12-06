@@ -198,21 +198,23 @@ unsigned int MiniAssembler_adrp(unsigned int uiReg, unsigned long ulAddr,
 }
 /*--------------------------------------------------------------------*/
 
-/* Return the machine language equivalent of "add rd, rn, rm" where
-   rd, rn, rm are all W registers.
+/* Return the machine language equivalent of "add rd, rn, #imm" where
+   rd, rn are all X registers.
    
    Parameters:
       uiRegSum: rd,
       uiRegAdd1: rn,
-      uiRegAdd2: rm
+      uiImmed: #imm
 */
    
 unsigned int MiniAssembler_add(unsigned int uiRegSum,
-   unsigned int uiRegAdd1, unsigned int uiRegAdd2)
+   unsigned int uiRegAdd1, unsigned int uiImmed)
 {
    unsigned int uiInstr; /* Instruction */
 
-   uiInstr = 0x8B000000;
+   /* 1001 0001 00.. .... .... .... .... */
+
+   uiInstr = 0x91000000;
    
    /* Getting the Rd value in */
    uiInstr |= uiRegSum;
@@ -221,9 +223,9 @@ unsigned int MiniAssembler_add(unsigned int uiRegSum,
    uiRegAdd1 = uiRegAdd1 << 5;
    uiInstr |= uiRegAdd1;
 
-   /* Getting the Rm value in from 16 to 20 */
-   uiRegAdd2 = uiRegAdd2 << 16;
-   uiInstr |= uiRegAdd2;
+   /* Getting the uiImmed value in from 10 to 21 */
+   uiImmed = uiImmed << 10;
+   uiInstr |= uiImmed;
 
    return uiInstr;
 }
