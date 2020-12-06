@@ -7,7 +7,7 @@ int main(void)
 {
     const char* name = "Tansha";
     int i;
-    unsigned long ulReturnAddress = 0x420070;
+    unsigned long ulReturnAddress = 0x420064;
 
     /* putchar('A') */
     /* unsigned int uiAdrInstr1 = MiniAssembler_adr(0, 0x400938, 0x42006C); */
