@@ -26,7 +26,6 @@ unsigned int MiniAssembler_mov(unsigned int uiReg,
    uiInstr |= uiReg;
 
    /* mask off everything except rightmost 16 bits: 0-15 in 5-20 */ 
-   /* Why need to mask? */
    uiImmed &= 0x0000FFFF;
 
    /* shift 5 */
@@ -224,6 +223,8 @@ unsigned int MiniAssembler_add(unsigned int uiRegSum,
    uiInstr |= uiRegAdd1;
 
    /* Getting the uiImmed value in from 10 to 21 */
+   /* mask off everything except rightmost 16 bits: 0-15 in 5-20 */ 
+   uiImmed &= 0x0000FFFFF;
    uiImmed = uiImmed << 10;
    uiInstr |= uiImmed;
 
@@ -232,37 +233,3 @@ unsigned int MiniAssembler_add(unsigned int uiRegSum,
 
 
 /*--------------------------------------------------------------------*/
-
-/* Return the machine language equivalent of "ldrb wt, [rn, #imm]"" where
-   wt is a W register,
-   rn is a base X register,
-   #imm is a immed value.
-   
-   Parameters:
-      uiReg: wt,
-      uiRegN: rn,
-      uiImmed: #imm
-*/
-   
-unsigned int MiniAssembler_ldrb(unsigned int uiReg,
-   unsigned int uiRegN, unsigned int uiImmed)
-{
-   unsigned int uiInstr; /* Instruction */
-
-   /* 0011 1000 010x xxxx xxxx x110 0000 0000 */
-
-   uiInstr = 0x38400600;
-   
-   /* Getting the wt value in */
-   uiInstr |= uiReg;
-   
-   /* Getting the rn value in from 5 to 9 */
-   uiRegN = uiRegN << 5;
-   uiInstr |= uiRegN;
-
-   /* Getting the #imm value in from 12 to 20 */
-   uiImmed = uiImmed << 12;
-   uiInstr |= uiImmed;
-
-   return uiInstr;
-}
