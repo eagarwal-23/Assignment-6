@@ -11,7 +11,7 @@ int main(void)
 
     /* putchar('A') */
     /* unsigned int uiAdrInstr1 = MiniAssembler_adr(0, 0x400938, 0x42006C); */
-    /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); /* /* 24-27 */
+    /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); */ /* 24-27 */
     /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); */ /* 28-31 */
     /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); */ /* 28-31 */
     
@@ -27,7 +27,7 @@ int main(void)
     unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420074);/* 5 */
     
     /* grade = + */
-    unsigned int uiMovInstr2 = MiniAssembler_mov(1, 0x002B); /* 6 */
+    unsigned int uiMovInstr1 = MiniAssembler_mov(1, 0x002B); /* 6 */
     unsigned int uiAdrInstr1 = MiniAssembler_adr(2, 0x420044, 0x42007C); /* 7 */
     unsigned int uiStrbInstr1 = MiniAssembler_strb(1, 2); /* 8 */
     
@@ -49,14 +49,14 @@ int main(void)
         putc('\0', psFile); /* Writes 00000000 */
     }
 
-    fwrite(&uiAdrInstr1, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiAdrpInstr1, sizeof(unsigned int), 1, psFile);
     fwrite(&uiAddInstr1, sizeof(unsigned int), 1, psFile);
     fwrite(&uiAdrpInstr2, sizeof(unsigned int), 1, psFile);
     fwrite(&uiAddInstr2, sizeof(unsigned int), 1, psFile);
     fwrite(&uiBlInstr1, sizeof(unsigned int), 1, psFile);
 
 
-    fwrite(&uiMovInstr2, sizeof(unsigned int), 1, psFile);
+    fwrite(&uiMovInstr1, sizeof(unsigned int), 1, psFile);
     fwrite(&uiAdrInstr1, sizeof(unsigned long), 1, psFile);
     fwrite(&uiStrbInstr1, sizeof(unsigned int), 1, psFile);
 
