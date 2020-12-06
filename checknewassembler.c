@@ -24,17 +24,17 @@ int main(void)
     /* Branch to printf("%c is your grade.\n", grade); */
     unsigned int uiBInstr1 = MiniAssembler_b(0x400864, 0x420084); /* 9 */
 
-    printf("%u\n", uiAdrpInstr1);
-    printf("%u\n", uiAddInstr1);
-    printf("%u\n", uiAdrpInstr2);
-    printf("%u\n", uiAddInstr2);
-    printf("%u\n", uiBlInstr1);
+    printf("0x%08x\n", uiAdrpInstr1);
+    printf("0x%08x\n", uiAddInstr1);
+    printf("0x%08x\n", uiAdrpInstr2);
+    printf("0x%08x\n", uiAddInstr2);
+    printf("0x%08x\n", uiBlInstr1);
 
-    printf("%u\n", uiMovInstr1);
-    printf("%u\n", uiAdrInstr1);
-    printf("%u\n", uiStrbInstr1);
+    printf("0x%08x\n", uiMovInstr1);
+    printf("0x%08x\n", uiAdrInstr1);
+    printf("0x%08x\n", uiStrbInstr1);
 
-    printf("%u\n", uiBInstr1);
+    printf("0x%08x\n", uiBInstr1);
     
     return 1;
 }
