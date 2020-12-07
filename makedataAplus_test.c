@@ -12,7 +12,7 @@ int main(void)
     
     /* grade = 0x41 */
     /* 0x41: hex for A */
-    unsigned int uiMovInstr = MiniAssembler_mov(1, 0x33323130);
+    unsigned int uiMovInstr = MiniAssembler_mov(1, 0x612B);
     unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
     unsigned int uiStrbInstr = MiniAssembler_strb(1, 2);
 
@@ -21,7 +21,7 @@ int main(void)
 
     FILE *psFile;
 
-    psFile = fopen("dataA", "w");
+    psFile = fopen("test_dataAplus", "w");
 
     /* Printing out 15-character long name. */
     /* 0->14 */
