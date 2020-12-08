@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------*/
-/* createdataA.c                                                    */
-/* Author: Eesha Agarwal, and Tan vu                     */
+/* createdataA.c                                                      */
+/* Author: Eesha Agarwal, and Tan vu                                  */
 /*--------------------------------------------------------------------*/
 
 #include <stdio.h>
