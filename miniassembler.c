@@ -199,13 +199,18 @@ unsigned int MiniAssembler_adrp(unsigned int uiReg, unsigned long ulAddr,
    unsigned int uiDisp; 
    unsigned int uiDispLo; 
    unsigned int uiDispHi;
-         
+
+   /* 1001 0000 00xx xxxx xx...xx xxxx */
    uiInstr = 0x90000000;
    
+   /* Rightmost 5 bits contain the name of the 32-bit
+      destination register. */
    uiInstr |= uiReg;
     
+   /* Displacement */
    uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
+   /* Similar to MiniAssembler_adr */
    uiDispLo = uiDisp & 0x3;
    uiDispLo = uiDispLo << 29;
    uiInstr |= uiDispLo;

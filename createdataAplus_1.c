@@ -1,3 +1,8 @@
+/*--------------------------------------------------------------------*/
+/* createdataAplus_1.c                                                    */
+/* Author: Eesha Agarwal, and Tan vu                     */
+/*--------------------------------------------------------------------*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -10,8 +15,10 @@ int main(void)
     /* ulReturnAddress in BSS (the name array) */
     unsigned long ulReturnAddress = 0x420078;
     
-    /* grade = 0x41 */
-    /* 0x41: hex for A */
+    /* grade = A+ */
+    /* Trying to place a multi char literal in grade */
+    /* 0x612B was obtained by printf("%d", 'A+') and then convert the decimal to hex */
+    /* When attempting to print grade, only + showed up */
     unsigned int uiMovInstr = MiniAssembler_mov(1, 0x612B);
     unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
     unsigned int uiStrbInstr = MiniAssembler_strb(1, 2);
@@ -21,7 +28,7 @@ int main(void)
 
     FILE *psFile;
 
-    psFile = fopen("test_dataAplus", "w");
+    psFile = fopen("dataAplus", "w");
 
     /* Printing out 15-character long name. */
     /* 0->14 */

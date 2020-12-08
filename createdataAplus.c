@@ -1,3 +1,8 @@
+/*--------------------------------------------------------------------*/
+/* createdataAplus.c                                                    */
+/* Author: Eesha Agarwal, and Tan vu                     */
+/*--------------------------------------------------------------------*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -9,20 +14,13 @@ int main(void)
     int i;
     unsigned long ulReturnAddress = 0x420064;
 
-    /* putchar('A') */
-    /* unsigned int uiAdrInstr1 = MiniAssembler_adr(0, 0x400938, 0x42006C); */
-    /* unsigned int uiMovInstr1 = MiniAssembler_mov(0, 0x41); */ /* 24-27 */
-    /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400490, 0x420070); */ /* 28-31 */
-    /* unsigned int uiBlInstr1 = MiniAssembler_bl(0x400600, 0x420070); */ /* 28-31 */
-    
-
-    /* Testing how to use printf by printing stuff from RODATA */
-    /* Basic idea is we will write %c NULLBYTE at the end of this file.
+    /* Basic idea is we will write %c at the end of this file.
     We will know the place in memory so we can put the address in x0, and then char A in x1,
     and we can call printf. 
-    Only problem is that printf is segfaulting. */
+    Only problem is that printf is segfaulting even when trying to load and print from RODATA.
+    Potentially problem with MiniAssembler_adrp or MiniAssembler_add or MiniAssembler_bl */
 
-
+    /* printf("Thank you, %s.\n", name) */
     /* adrp	x0, 0x400000 */
     unsigned int uiAdrpInstr1 = MiniAssembler_adrp(0, 0x400000, 0x420064); /* 1 */
     /* add	x0, x0, #0x978 */
