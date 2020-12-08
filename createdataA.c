@@ -46,6 +46,8 @@ int main(void)
 
     fclose(psFile);
 
+    printf(uiMovInstr);
+    
     return 1;
 }
 

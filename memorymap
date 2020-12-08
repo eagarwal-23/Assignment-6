@@ -122,13 +122,63 @@
 
 // STEP 2.2: MEMORY MAP OF THE DATA SECTION
 
-    Address         |         Content               |         Description
-   0x420044         |   0x00000044                  |            grade
+       Address      |         Content           |         Description
+      0x420044      |        0x00000044         |            grade
 
 
 // STEP 2.3: MEMORY MAP OF THE BSS SECTION   
-    Address         |         Content               |         Description
-   0x420058         |       0x00000000              |            name
+       Address      |         Description
+      0x420058      |         name[0] = T
+      0x420059      |         name[1] = a
+      0x42005A      |         name[2] = n
+      0x42005B      |         name[3] = s
+      0x42005C      |         name[4] = h
+      0x42005D      |         name[5] = a
+      0x42005E      |         name[6] = " "
+      0x42005F      |         name[7] = V
+      0x420060      |         name[8] = u
+      0x420061      |         name[9] = g
+      0x420062      |        name[10] = a
+      0x420063      |        name[11] = r
+      0x420064      |        name[12] = w 
+      0x420065      |        name[13] = a 
+      0x420066      |        name[14] = l 
+      0x420067      |        name[15] = '\0'
+      0x420068      |        name[16] = '\0'
+      0x420069      |        name[17] = '\0'
+      0x42006A      |        name[18] = '\0'
+      0x42006B      |        name[19] = '\0'
+      0x42006C      |        name[20] = '\0'
+      0x42006D      |        name[21] = '\0'
+      0x42006E      |        name[22] = '\0'
+      0x42006F      |        name[23] = '\0'
+      0x420070      |        name[24] = '\0'
+      0x420071      |        name[25] = '\0'
+      0x420072      |        name[26] = '\0'
+      0x420073      |        name[27] = '\0'
+      0x420074      |        name[28] = '\0'
+      0x420075      |        name[29] = '\0'
+      0x420076      |        name[30] = '\0'
+      0x420077      |        name[31] = '\0'
+      0x420078      |        name[32] =  0x52 (mov  w1, A) 
+      0x420079      |        name[33] =  0x80 (mov  w1, A)
+      0x42007A      |        name[34] =  0x08 (mov  w1, A)
+      0x42007B      |        name[35] =  0x21 (mov  w1, A)
+      0x42007C      |        name[36] =  
+      0x42007D      |        name[37] = 
+      0x42007E      |        name[38] = 
+      0x42007F      |        name[39] = 
+      0x420080      |        name[40] = 
+      0x420081      |        name[41] = 
+      0x420082      |        name[42] = 
+      0x420083      |        name[43] = 
+      0x420084      |        name[44] = 
+      0x420085      |        name[45] = 
+      0x420086      |        name[46] = 
+      0x420087      |        name[47] = 
+
+unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
+
 
 // STEP 2.4: MEMORY MAP OF THE STACK
 
