@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------*/
 /* miniassembler.c                                                    */
-/* Author: Bob Dondero and ???                                        */
+/* Author: Bob Dondero, Eesha Agarwal, and Tan vu                     */
 /*--------------------------------------------------------------------*/
 
 #include "miniassembler.h"
@@ -22,18 +22,20 @@ unsigned int MiniAssembler_mov(unsigned int uiReg,
    /* 0101 0010 100x xx...xx xxxx */
    uiInstr = 0x52800000;
    
-   /* Getting the Rd value in */
+   /* Rightmost 5 bits contain the name of the 32-bit destination 
+      register. */
    uiInstr |= uiReg;
 
-   /* mask off everything except rightmost 16 bits: 0-15 in 5-20 */ 
+   /* Mask off everything except rightmost 16 bits: 0-15 in 5-20. */ 
    uiImmed &= 0x0000FFFF;
 
-   /* shift 5 */
+   /* Shift the immediate value to the left 5 bits. */
    uiImmed = uiImmed << 5;
 
-   /* Getting the immed value in from 5 to 20 */
+   /* Bits 5-20 contain the immediate value. */
    uiInstr |= uiImmed;
 
+   /* Return the final machine code. */
    return uiInstr;
 }
 /*--------------------------------------------------------------------*/
