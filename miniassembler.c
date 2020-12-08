@@ -233,14 +233,14 @@ unsigned int MiniAssembler_add(unsigned int uiRegSum,
 {
    unsigned int uiInstr; /* Instruction */
 
-   /* 1001 0001 00.. .... .... .... .... */
-
+   /* 1001 0001 00xx xxxx xx...xx xxxx */
    uiInstr = 0x91000000;
    
-   /* Getting the Rd value in */
+   /* Rightmost 5 bits contain the name of the 32-bit
+      destination register. */
    uiInstr |= uiRegSum;
    
-   /* Getting the Rn value in from 5 to 9 */
+   
    uiRegAdd1 = uiRegAdd1 << 5;
    uiInstr |= uiRegAdd1;
 
