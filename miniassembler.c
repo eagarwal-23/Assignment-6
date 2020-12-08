@@ -35,7 +35,8 @@ unsigned int MiniAssembler_mov(unsigned int uiReg,
    /* Bits 5-20 contain the immediate value. */
    uiInstr |= uiImmed;
 
-   /* Return the final machine code. */
+   /* Return the final machine code 
+      translation of the instruction.*/
    return uiInstr;
 }
 /*--------------------------------------------------------------------*/
@@ -85,22 +86,24 @@ unsigned int MiniAssembler_adr(unsigned int uiReg, unsigned long ulAddr,
 
 unsigned int MiniAssembler_strb(unsigned int uiFromReg,
    unsigned int uiToReg) {
-      unsigned int uiInstr;
+   
+      unsigned int uiInstr; /* Instruction */
       
       /* 0011 1000 000x xx...xx xxxx */
       uiInstr = 0x39000000;
 
-      /* Rightmost 5 bits to contain the number of the
-         register from where byte has to be moved. */
+      /* Rightmost 5 bits to contain the number of
+         source register. */
       uiInstr |= uiFromReg;
 
-      /* Shift number of register to where byte has
-         to be moved left by 5 bits. */
+      /* Shift destination register number left by 5 bits. */
       uiToReg = uiToReg << 5;
 
-      
+      /* Bits 5-9 contain number of destination register. */
       uiInstr |= uiToReg;
 
+      /* Return the final machine code 
+         translation of the instruction.*/
       return uiInstr;
    }
    
@@ -117,21 +120,29 @@ unsigned int MiniAssembler_b(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    unsigned int uiInstr; /* Instruction */
-   unsigned int uiDisp; 
+   unsigned int uiOffset; 
    
+   /* 0001 01xx xxxx xx...xx xxxx */
    uiInstr = 0x14000000;
 
-   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
-   /* uiDisp = uiDisp << 26; */
+   /* Offset of address to be branched to from current
+      instruction. */
+   uiOffset = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
-   /* shift to the right to account for all multiples of 4 */
-   uiDisp = uiDisp >> 2;
+   /* Shift to the right by 2 bits since all offsets will
+      be multiples of 4, therefore will contain 00 as final
+      2 bits. */
+   uiOffset = uiOffset >> 2;
 
-   /* mask for 26 bits displacement might be negative */
-   uiDisp &= 0x03FFFFFF;
+   /* Mask only leftmost six bits, leaving the rest as is,
+      so opcode isn't overwritten. */ 
+   uiOffset &= 0x03FFFFFF;
 
-   uiInstr |= uiDisp; 
-
+   /* Bits 0-25 contain the offset. */
+   uiInstr |= uiOffset; 
+   
+   /* Return the final machine code 
+      translation of the instruction.*/
    return uiInstr;
 }
 
@@ -148,20 +159,29 @@ unsigned int MiniAssembler_bl(unsigned long ulAddr,
    unsigned long ulAddrOfThisInstr)
 {
    unsigned int uiInstr; /* Instruction */
-   unsigned int uiDisp; 
-   
+   unsigned int uiOffset; 
+
+   /* 1001 01xx xxxx xx...xx xxxx */
    uiInstr = 0x94000000;
 
-   uiDisp = (unsigned int)(ulAddr - ulAddrOfThisInstr);
+   /* Offset of address to be branched to from current
+      instruction. */
+   uiOffset = (unsigned int)(ulAddr - ulAddrOfThisInstr);
 
-   /* shift to the right to account for all multiples of 4 */
-   uiDisp = uiDisp >> 2;
+   /* Shift to the right by 2 bits since all offsets will
+      be multiples of 4, therefore will contain 00 as final
+      2 bits. */
+   uiOffset = uiOffset >> 2;
 
-   /* mask for 26 bits displacement might be negative */
-   uiDisp &= 0x03FFFFFF;
+   /* Mask only leftmost six bits, leaving the rest as is,
+      so opcode isn't overwritten. */ 
+   uiOffset &= 0x03FFFFFF;
 
-   uiInstr |= uiDisp; 
+   /* Bits 0-25 contain the offset. */
+   uiInstr |= uiOffset; 
 
+   /* Return the final machine code 
+      translation of the instruction.*/
    return uiInstr;
 }
 /*--------------------------------------------------------------------*/
@@ -232,6 +252,5 @@ unsigned int MiniAssembler_add(unsigned int uiRegSum,
 
    return uiInstr;
 }
-
 
 /*--------------------------------------------------------------------*/
