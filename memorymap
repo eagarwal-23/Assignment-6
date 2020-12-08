@@ -164,18 +164,18 @@
       0x420079      |        name[33] =  0x80 (mov  w1, A)
       0x42007A      |        name[34] =  0x08 (mov  w1, A)
       0x42007B      |        name[35] =  0x21 (mov  w1, A)
-      0x42007C      |        name[36] =  
-      0x42007D      |        name[37] = 
-      0x42007E      |        name[38] = 
-      0x42007F      |        name[39] = 
-      0x420080      |        name[40] = 
-      0x420081      |        name[41] = 
-      0x420082      |        name[42] = 
-      0x420083      |        name[43] = 
-      0x420084      |        name[44] = 
-      0x420085      |        name[45] = 
-      0x420086      |        name[46] = 
-      0x420087      |        name[47] = 
+      0x42007C      |        name[36] =  0x10 (adr  x2, grade)
+      0x42007D      |        name[37] =  0xFF (adr  x2, grade)
+      0x42007E      |        name[38] =  0xFE (adr  x2, grade)
+      0x42007F      |        name[39] =  0x42 (adr  x2, grade)
+      0x420080      |        name[40] =  0x39 (strb w1, [x2])
+      0x420081      |        name[41] =  0x00 (strb w1, [x2])
+      0x420082      |        name[42] =  0x00 (strb w1, [x2])
+      0x420083      |        name[43] =  0x41 (strb w1, [x2])
+      0x420084      |        name[44] =  0x17 (b    printf)
+      0x420085      |        name[45] =  0xFF (b    printf)
+      0x420086      |        name[46] =  0x81 (b    printf)
+      0x420087      |        name[47] =  0xF8 (b    printf)
 
 unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
 

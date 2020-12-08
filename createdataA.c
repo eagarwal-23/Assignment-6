@@ -5,9 +5,15 @@
 
 int main(void)
 {
+     /* Variable to hold index. */
     int i;
+
+    /* Variable to hold name to be
+       input into grader program. */
     const char* name = "Tansha Vugarwal";
-    /* ulReturnAddress in BSS (the name array) */
+
+    /* Address of assembly instructions in BSS section
+       (within name array) to branch back to. */
     unsigned long ulReturnAddress = 0x420078;
     
     /* grade = 0x41 */
