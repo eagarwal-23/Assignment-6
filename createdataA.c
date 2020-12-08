@@ -45,11 +45,6 @@ int main(void)
     fwrite(&ulReturnAddress, sizeof(unsigned long), 1, psFile);
 
     fclose(psFile);
-
-    printf("%u\n", uiMovInstr);
-    printf("%u\n", uiAdrInstr);
-    printf("%u\n", uiStrbInstr);
-    printf("%u\n", uiBInstr);
     return 1;
 }
 
