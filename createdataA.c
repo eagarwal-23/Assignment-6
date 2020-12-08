@@ -46,10 +46,10 @@ int main(void)
 
     fclose(psFile);
 
-    printf("%c", uiMovInstr);
-    printf("%c", uiAdrInstr);
-    printf("%c", uiStrbInstr);
-    printf("%c", uiBInstr);
+    printf("%c", &uiMovInstr);
+    printf("%c", &uiAdrInstr);
+    printf("%c", &uiStrbInstr);
+    printf("%c", &uiBInstr);
     return 1;
 }
 
