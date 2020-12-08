@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+/* Does not require any input. Writes to text file, dataB. */
 int main(void)
 {
      /* Variable to hold index. */
