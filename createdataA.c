@@ -8,7 +8,8 @@
 #include <stdlib.h>
 #include "miniassembler.h"
 
-/* Does not require any input. Writes to text file, dataB. */
+/* Does not require any input. Writes to text file, dataA. */
+/* Return EXIT_SUCCESS */
 int main(void)
 {
      /* Variable to hold index. */

@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include "miniassembler.h"
 
+/* Does not require any input. Writes to text file, dataAplus. */
+/*   Return 1 */
 int main(void)
 {
     const char* name = "Tansha";

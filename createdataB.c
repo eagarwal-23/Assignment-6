@@ -7,7 +7,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-/* Does not require any input. Writes to text file, dataB. */
+/* Does not require any input. Writes to text file, dataB.
+   Return EXIT_SUCCESS */
 int main(void)
 {
      /* Variable to hold index. */

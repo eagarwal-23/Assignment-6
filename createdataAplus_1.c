@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include "miniassembler.h"
 
+/* Does not require any input. Writes to text file, dataAplus_1. */
+/*   Return 1 */
 int main(void)
 {
     int i;
@@ -28,7 +30,7 @@ int main(void)
 
     FILE *psFile;
 
-    psFile = fopen("dataAplus", "w");
+    psFile = fopen("dataAplus_1", "w");
 
     /* Printing out 15-character long name. */
     /* 0->14 */
