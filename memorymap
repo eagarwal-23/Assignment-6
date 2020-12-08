@@ -172,13 +172,10 @@
       0x420081      |        name[41] =  0x00 (strb w1, [x2])
       0x420082      |        name[42] =  0x00 (strb w1, [x2])
       0x420083      |        name[43] =  0x41 (strb w1, [x2])
-      0x420084      |        name[44] =  0x17 (b    printf)
-      0x420085      |        name[45] =  0xFF (b    printf)
-      0x420086      |        name[46] =  0x81 (b    printf)
-      0x420087      |        name[47] =  0xF8 (b    printf)
-
-unsigned int uiAdrInstr = MiniAssembler_adr(2, 0x420044, 0x42007C);
-
+      0x420084      |        name[44] =  0x17 (b call of printf in main)
+      0x420085      |        name[45] =  0xFF (b call of printf in main)
+      0x420086      |        name[46] =  0x81 (b call of printf in main)
+      0x420087      |        name[47] =  0xF8 (b call of printf in main)
 
 // STEP 2.4: MEMORY MAP OF THE STACK
 

@@ -19,11 +19,12 @@ int main(void)
     FILE *psFile;
     psFile = fopen("dataB", "w");
 
-    /* Printing out hardcoded name. */
+    /* Printing out hardcoded name from name[0] - name[14]. */
     fprintf(psFile, "%s", name);
 
-    /* Printing null-terminating character thirty
-       three times, to fill up the char array name. */
+    /* Printing null-terminating character 33
+       times, to fill up the char array name,
+       from name[15] - name[47]. */
     for (i = 0; i < 33; i++)
     {
         /* Write null-terminating character. */
