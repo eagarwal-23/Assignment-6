@@ -160,18 +160,18 @@
       0x420075      |        name[29] = '\0'
       0x420076      |        name[30] = '\0'
       0x420077      |        name[31] = '\0'
-      0x420078      |        name[32] =  0x52 (mov  w1, A) 
-      0x420079      |        name[33] =  0x80 (mov  w1, A)
-      0x42007A      |        name[34] =  0x08 (mov  w1, A)
-      0x42007B      |        name[35] =  0x21 (mov  w1, A)
-      0x42007C      |        name[36] =  0x10 (adr  x2, grade)
-      0x42007D      |        name[37] =  0xFF (adr  x2, grade)
-      0x42007E      |        name[38] =  0xFE (adr  x2, grade)
-      0x42007F      |        name[39] =  0x42 (adr  x2, grade)
-      0x420080      |        name[40] =  0x39 (strb w1, [x2])
-      0x420081      |        name[41] =  0x00 (strb w1, [x2])
-      0x420082      |        name[42] =  0x00 (strb w1, [x2])
-      0x420083      |        name[43] =  0x41 (strb w1, [x2])
+      0x420078      |        name[32] =  0x52 (mov  w0, A) 
+      0x420079      |        name[33] =  0x80 (mov  w0, A)
+      0x42007A      |        name[34] =  0x08 (mov  w0, A)
+      0x42007B      |        name[35] =  0x20 (mov  w0, A)
+      0x42007C      |        name[36] =  0x10 (adr  x1, grade)
+      0x42007D      |        name[37] =  0xFF (adr  x1, grade)
+      0x42007E      |        name[38] =  0xFE (adr  x1, grade)
+      0x42007F      |        name[39] =  0x41 (adr  x1, grade)
+      0x420080      |        name[40] =  0x39 (strb w0, [x1])
+      0x420081      |        name[41] =  0x00 (strb w0, [x1])
+      0x420082      |        name[42] =  0x00 (strb w0, [x1])
+      0x420083      |        name[43] =  0x20 (strb w0, [x1])
       0x420084      |        name[44] =  0x17 (b call of printf in main)
       0x420085      |        name[45] =  0xFF (b call of printf in main)
       0x420086      |        name[46] =  0x81 (b call of printf in main)
@@ -179,16 +179,16 @@
 
 // STEP 2.4: MEMORY MAP OF THE STACK
 
-      Offset        |              Description
-        0           |                  x19
-        8           |                  x20
-       16           |                  x21
-       24           |            x30  // from readString to getName
-       32           |                  Buf
-       40           |                  buf
-       48           |                  buf
-       56           |                  buf
-       64           |                  buf
-       72           |                  buf
-       80           |                  buf
-       88           |             x30 // from getName() to main
+      Offset            |           Description
+        0               |              x19
+        8               |              x20
+       16               |              x21
+       24               |     x30 from readString() to getName()
+       32               |              buf
+       40               |              buf
+       48               |              buf
+       56               |              buf
+       64               |              buf
+       72               |              buf
+       80               |              buf
+       88               |    x30 from getName() to main
