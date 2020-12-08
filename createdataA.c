@@ -80,11 +80,6 @@ int main(void)
 
     fclose(psFile);
 
-    printf("%u\n", uiMovInstr);
-    printf("%u\n", uiAdrInstr);
-    printf("%u\n", uiStrbInstr);
-    printf("%u\n", uiBInstr);
-
     /* Return success. */
     return EXIT_SUCCESS; 
 }
